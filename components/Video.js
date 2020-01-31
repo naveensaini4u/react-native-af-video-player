@@ -383,7 +383,7 @@ class Video extends Component {
           <Image resizeMode="cover" style={styles.image} {...checkSource(placeholder)} />
         }
         <VideoPlayer
-          source={...checkSource(url)}
+          source={checkSource(url)}
           paused={paused}
           resizeMode={resizeMode}
           repeat={loop}
