@@ -116,10 +116,10 @@ class Video extends Component {
     })
   }
 
-  // onBuffer() {
-  //   // console.log('buffering')
-  //   this.setState({ loading: true, paused: true })
-  // }
+  onBuffer() {
+    // console.log('buffering')
+    this.setState({ loading: true, paused: true })
+  }
 
   onEnd() {
     this.props.onEnd()
@@ -383,7 +383,7 @@ class Video extends Component {
           <Image resizeMode="cover" style={styles.image} {...checkSource(placeholder)} />
         }
         <VideoPlayer
-          {...checkSource(url)}
+          source={...checkSource(url)}
           paused={paused}
           resizeMode={resizeMode}
           repeat={loop}
@@ -400,7 +400,7 @@ class Video extends Component {
           onProgress={e => this.progress(e)} // Callback every ~250ms with currentTime
           onEnd={() => this.onEnd()}
           onError={e => this.onError(e)}
-          // onBuffer={() => this.onBuffer()} // Callback when remote video is buffering
+          onBuffer={() => this.onBuffer()} // Callback when remote video is buffering
           onTimedMetadata={e => onTimedMetadata(e)} // Callback when the stream receive some metadata
         />
         <Controls
